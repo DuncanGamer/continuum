@@ -2,7 +2,7 @@ import axios from "axios";
 
  
 
-const api = "https://continuum-xi.vercel.app/"
+const api = "https://apicontinuum.herokuapp.com/"
 // "http://localhost:3000/"
 
 
