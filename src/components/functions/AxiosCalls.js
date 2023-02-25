@@ -2,7 +2,7 @@ import axios from "axios";
 
  
 
-const api = "https://continuum-online-k7ew.vercel.app/"
+const api = "https://continuum-xi.vercel.app/"
 // "http://localhost:3000/"
 
 
