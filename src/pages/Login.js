@@ -20,8 +20,10 @@ const Login = () => {
         email: e.target.email.value,
         password: e.target.password.value,
       };
+      const api = "https://apicontinuum.herokuapp.com/"
+// "http://localhost:3000/"
   
-      axios.post('http://localhost:3000/users/login', data)
+      axios.post(`${api}/users/login`, data)
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('userId', response.data.userId);
