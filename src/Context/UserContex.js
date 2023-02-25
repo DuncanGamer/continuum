@@ -18,7 +18,7 @@ useEffect(() => {
   if (token) {
     setLoading(true);
     axios
-      .get(`${api}users/one-users/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
+      .get(`${api}users/one-users/${userId}`)
       .then((res) => {
         setUser(res.data.users[0]);
         setLoading(false);
