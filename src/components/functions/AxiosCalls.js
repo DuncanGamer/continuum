@@ -1,8 +1,10 @@
 import axios from "axios";
 
+ 
 
+const api = "https://continuum-online-k7ew.vercel.app/"
+// "http://localhost:3000/"
 
-const api = "http://localhost:3000/"
 
 const AxiosCalls = async(state)=>{
     const peticion = await axios.get ("https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=324&apikey=3GMPPIKJz782hBb4nOzleGmaFINv5lmV")
