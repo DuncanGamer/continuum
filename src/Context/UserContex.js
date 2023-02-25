@@ -3,8 +3,8 @@ import { createContext } from "react";
 import { useEffect, useState } from "react";
 
 const UserContext = createContext();
-const api = "http://localhost:3000/"
-
+const api = "https://apicontinuum.herokuapp.com/"
+// "http://localhost:3000/"
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
