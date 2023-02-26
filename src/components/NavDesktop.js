@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContex";
 import { useContext } from "react";
 import { useEffect } from "react";
-
+import { CartContext } from "../Context/CartContext";
 
 
 
@@ -15,6 +15,7 @@ import { useEffect } from "react";
 
 function NavDesktop() {
  const { user, setUser } = useContext(UserContext);
+ const {state,dispatch} = useContext(CartContext)
   const nav = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => setIsOpen(!isOpen);
@@ -39,13 +40,13 @@ function NavDesktop() {
                 >
                   Create new concert
                 </Link>
-                <a
-                  href="/MyConcerts"
+                <Link to="/MyConcerts"
+                 
                  
                   className="bg-do-blue-mediumdark px-3 py-1 rounded text-sky-400 font-semibold"
                 >
                   My concerts
-                </a>
+                </Link>
               {user.role==="admin"? (<a
                   href="https://apicontinuum.herokuapp.com/users/all-users"
                    className="bg-do-blue-mediumdark px-3 py-1 rounded text-sky-400 font-semibold"
@@ -53,6 +54,12 @@ function NavDesktop() {
                 Admin panel
                 </a>):null }
                {console.log(user)}
+               <Link
+                  to="/Cart"
+                  className="bg-do-blue-mediumdark px-3 py-1 rounded text-sky-400 font-semibold"
+                >
+                  Cart ({state.cart.length})
+                </Link>
                
                 <a
                   onClick={handleSesion}
@@ -71,27 +78,27 @@ function NavDesktop() {
               <div className=" hidden md:block">
                 <div className=" flex justify-between  gap-x-6">
                   <div>
-                    <a href="/">
+                    <Link to="/">
                       <img src="./logo1.png" alt="logo continum" width="60px" />
-                    </a>
+                    </Link>
                   </div>
                   <div className="flex ml-20 gap-4 ">
-                    <a className=" hover:text-gray-600" href="/">
+                    <Link to="/"className=" hover:text-gray-600" >
                       {" "}
                       Accueil
-                    </a>
-                    <a href="/London" className=" hover:text-gray-600">
+                    </Link>
+                    <Link to="/London" className=" hover:text-gray-600">
                       London
-                    </a>
-                    <a href="/Barcelona" className=" hover:text-gray-600">
+                    </Link>
+                    <Link to="/Barcelona" className=" hover:text-gray-600">
                       Barcelona
-                    </a>
-                    <a href="/Artist" className=" hover:text-gray-600">
+                    </Link>
+                    <Link to="/Artist" className=" hover:text-gray-600">
                       Artist
-                    </a>
-                    <a href="/ConcertForm" className=" hover:text-gray-600">
+                    </Link>
+                    <Link to ="/ConcertForm" className=" hover:text-gray-600">
                       Indies
-                    </a>
+                    </Link>
                   </div>
 
                 
@@ -100,9 +107,9 @@ function NavDesktop() {
               <div className="hidden items-center g md:block">
                 <div className=" w-full h-14 flex justify-around gap-10">
                   {!token() ? (
-                    <a
+                    <a href="/login"
                       className=" hover:shadow-lg shadow-md shadow-gray-500/50 border w-40 text-center py-3 rounded-xl  duration-300 ease-out hover:ease-in"
-                      href="/login"
+                      
                     >
                       Log In
                     </a>
@@ -117,9 +124,9 @@ function NavDesktop() {
               >
                 <div>
                   {" "}
-                  <a href="/">
+                  <Link to="/">
                     <img src="./logo1.png" alt="logo continum" width="60px" />
-                  </a>
+                  </Link>
                 </div>
 
                 <div>
@@ -139,23 +146,23 @@ function NavDesktop() {
             className={!isOpen ? "hidden" : "absolute   bg-white w-full h-78  "}
           >
             <li className="shadow-lg items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
-              <a href="/">Accueil</a>
+              <Link to="/">Accueil</Link>
             </li>
 
             <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
-              <a href="/Artist" className=" hover:text-gray-600">
+              <Link to="/Artist" className=" hover:text-gray-600">
                 Artist
-              </a>
+              </Link>
             </li>
             <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
-              <a href="/London" className=" hover:text-gray-600">
+              <Link to="/London" className=" hover:text-gray-600">
                 London
-              </a>
+              </Link>
             </li>
             <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
-              <a href="/Barcelona" className=" hover:text-gray-600">
+              <Link to="/Barcelona" className=" hover:text-gray-600">
                 Barcelona
-              </a>
+              </Link>
             </li>
             <div className=" flex flex-col gap-4">
               <button className="mt-3 mx-16 hover:shadow-lg shadow-md shadow-gray-500/50 border px-5 py-3 rounded-xl  duration-300 ease-out hover:ease-in">
@@ -164,7 +171,7 @@ function NavDesktop() {
                 </a>
               </button>
               <button className="mb-4 mx-16 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in">
-                <a href="/login">Log in</a>
+                <Link to="/login">Log in</Link>
               </button>
             </div>
           </ul>

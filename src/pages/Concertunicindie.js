@@ -7,28 +7,64 @@ import { useContext } from "react";
 import {  useParams } from "react-router-dom";
 import { getConcertIndieRequest, getConcertIndieRequestImage } from "../components/functions/AxiosCalls";
 import { useState } from "react";
-
+import { CartContext } from "../Context/CartContext";
+import { useRedux } from "react";
 
 
 const Concertunicindie = () => {
   
-  
+   
+  useEffect(() => {
+getConcertIndieRequest (params.id, setConcert)
+getConcertIndieRequestImage (params.id, setImage)
+
+    
+
+  }, [])
     
   const params = useParams()
+  
+  const {state,dispatch} = useContext(CartContext)
   
   const [concert, setConcert] = useState([]);
   const [image, setImage] = useState([]);
   
+ 
+  const addToCart = () => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const itemInCart = cartItems.find((item) => item.id === concert.id);
   
-  useEffect(() => {
-getConcertIndieRequest (params.id, setConcert)
-getConcertIndieRequestImage (params.id, setImage)
-    
-
-  }, [])
+    if (itemInCart) {
+      const newCartItems = cartItems.map((item) =>
+        item.id === concert.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      localStorage.setItem("cart", JSON.stringify(newCartItems));
+    } else {
+      const newCartItem = { ...concert, quantity: 1 };
+      localStorage.setItem("cart", JSON.stringify([...cartItems, newCartItem]));
+    }
+  
+    dispatch({
+      type: 'ADD_TO_CART', 
+      payload: { ...concert, quantity: itemInCart ? itemInCart.quantity + 1 : 1 },
+    });
+  
+    // Actualizar el valor del local storage al final de la función
+    const updatedCartItems = JSON.stringify(cartItems);
+    localStorage.setItem("cart", updatedCartItems);
+  };
+  
+  
 
  
 
+ 
+const removeFromCart = () => {
+  dispatch({
+    type: 'REMOVE_FROM_CART',
+    payload: concert
+  })
+}
   return (
     <>
  
@@ -62,8 +98,16 @@ getConcertIndieRequestImage (params.id, setImage)
             <p> Locale: {concert.locale}</p>
             <p>Description: {concert.description}</p>
             <p> Price: {concert.price}</p>
-         <button className=" inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out ">Add to cart</button>
-         <button className="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out " > Remove from cart</button>
+         
+        <button 
+        onClick={() => addToCart()}
+         className=" inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out ">Add to cart</button>
+       
+         <button
+          onClick = {() =>removeFromCart()}
+         className="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out " > Remove from cart</button>
+         
+         
 
         </div>
 

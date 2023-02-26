@@ -11,11 +11,17 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
   <BrowserRouter>
-  <CartProvider>
+  
+ 
+ 
   <UserProvider>
+    <CartProvider>
    <App/>
+    </CartProvider>
    </UserProvider>
-   </CartProvider>
+   
+  
+  
   </BrowserRouter>
  
 );
