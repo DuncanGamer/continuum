@@ -5,7 +5,7 @@ import React from 'react'
 const PayPalPayment = () => {
   return (
     <PayPalScriptProvider options={{ "client-id": "test" }}>
-            <PayPalButtons style={{ layout: "horizontal" }} />
+            <PayPalButtons  />
         </PayPalScriptProvider>
   )
 }

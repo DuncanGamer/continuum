@@ -19,8 +19,8 @@ const SummaryItem = ({ concert }) => {
 
   return (
     <>
-    <div className = "container w-">
-      <div className=" flex sm:mx-auto sm:flex-row gap-5 items-center justify-between py-8 border-b border-gray-300/60">
+    
+      <div className=" container flex sm:mx-auto sm:flex-row gap-5 items-center justify-between py-8 border-b border-gray-300/60">
         <div className="flex  items-center  mb-4 sm:mb-0">
           <div className="rounded overflow-hidden mr-4">
             <img className="w-20 h-20 object-cover" src={concert.image.url} alt={concert.concertName} />
@@ -38,7 +38,8 @@ const SummaryItem = ({ concert }) => {
           </button>
         </div>
       </div>
-    </div>
+
+    
     </>
   );
 };

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { DataEvento,unicoevento,Simagen } from '../components/functions/AxiosCalls'
 import { useEffect, useState } from 'react'
 import Baner from '../components/Baner'
-
+import '../image.css'
 
 
 
@@ -29,7 +29,6 @@ const Concertunic = () => {
 
 
 
-
   return (
 
 
@@ -41,23 +40,27 @@ const Concertunic = () => {
 
 
 
-            <div className="carousel-inner relative w-full overflow-hidden">
+            <div className="z-1 carousel-inner  relative w-full overflow-hidden">
 
               <div className="carousel-item active relative float-left w-full">
-                <img src={imagen} className="block w-full" alt="Motorbike Smoke" />
-
+                <img src={imagen} className="  block w-full" alt="Motorbike Smoke" />
+                
+                <div className='flex justify-center  absolute top-0 right-0 w-full h-full bg-gradient-to-t from-black to-transparent'>
+                  <h3 className=' mt-auto mb-10 z-0 text-white text-7xl py-10'>{info.name}</h3>
+                </div>
               </div>
-
+    
             </div>
 
 
           </div>
+      
         </div>
       </div>
 
       <div className='container m-auto h-96'>
         <div>
-          <h3 className='text-6xl py-10'>{info.name}</h3>
+        
           <p > Locale: {info.locale}</p>
           <p > Date: {date.localDate}</p>
           <p> Time: {date.localTime}</p>

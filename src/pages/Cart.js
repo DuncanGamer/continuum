@@ -53,13 +53,13 @@ const Cart = () => {
   state.cart.forEach((concert) => (value += concert.price));
 
   return (
-    <div className="  container sm:mx-14  min-h-screen h-auto">
-      <div className=" grid  gap-8  mb-16">
-        <section className=' "col-span-2 pt-10  mt-40'>
+    <div className="    mx-auto min-h-screen h-auto">
+      <div className="  flex  gap-8  mb-16">
+        <section className='sm:px-4 md:container mx-auto pt-10  mt-40 '>
           <h1 className="text-3xl font-bold mb-8">Cart</h1>
           {state?.cart?.length > 0 ? (
-            <div className="mx-auto">
-              <div className=" grid  mb-2  border-t border-gray-300/60">
+            <div className="mx-auto ">
+              <div className=" container   mb-2  border-t border-gray-300/60">
                 {state.cart.map((concert) => (
                  <SummaryItem key={concert._id} concert={concert} />
 
@@ -74,11 +74,16 @@ const Cart = () => {
               <Link to="/" className=" bg-gradient">
                 <button className=" inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out ">Continue Shopping </button>
               </Link>
-              
+       
             </>
           )}
+          <div className="container flex justify-end">
+       <div class="  w-10 mt-40 mr-40  ">
+  <PayPalPayment/>
+</div>
+</div>
         </section>
-        <PayPalPayment/>
+        
       </div>
     </div>
   );
