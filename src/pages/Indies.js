@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Carrusel from "../components/Carrusel";
 import Baner from "../components/Baner";
 import { usePostContext } from "../Context/concertsContext";
-
+import Market2 from "../components/Market2";
 const ConcertForm = () => {
   const { concert } = usePostContext();
 
@@ -11,13 +11,15 @@ const ConcertForm = () => {
   }
 
   return (
-    <div>
-      <div className=" w-screen">
-        
-
+    <div >
+        <div id="header">
+        <Carrusel />
+        </div>
+      <div className=" bg-gradient-to-b from-black to-transparent w-screen">
+      <Market2/>
         <div className=" container mx-auto  overflow-x-auto   flex md:overflow-visible  px-6 py-6 ">
           <div className="  px-6 py-6 shrink-0 mx-auto snap-center flex sm:grid  content-center  md:grid-cols-3  lg:grid-cols-3  ">
-            {concert.slice(0, 3).map(
+            {concert.map(
               ({ _id, concertName, artist, date, place, price, image }) => (
                 <div key={_id} className="  gap-5 px-6 py-6 ">
                   <a href={`/Concertunicindie/${_id}`}>

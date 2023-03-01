@@ -42,17 +42,18 @@ const NewConcert = () => {
 
   return (
     <>
-      <div className=" px-4  ">
-        <div className=" pt-10 container block h-auto lg:pt-32">
-          <div className="mt-10">
+      <div className=" px-4 mx-auto container ">
+        <div className=" pt-10 block h-auto ">
+          <div className="mt-10 ">
+         
+          </div>
+          <div className="   flex flex-col lg:flex-row items-center   ">
           <Market1
             Titulo1="Simplier."
             Titulo2="Happier."
             Titulo3=" Better concerts."
             Paragraph=" "
           />
-          </div>
-          <div className=" container   flex flex-col lg:flex-row items-center mx-auto  ">
             <div className=" mx-auto w-full lg:w-1/2 mt-14 ">
               <div className="  mb-4 font-3xl"> Create your concert</div>
               <Formik
@@ -71,7 +72,7 @@ const NewConcert = () => {
                 })}
                 onSubmit={async (values, actions) => {
                   await postConcert(values);
-                  navigate("/ConcertForm");
+                  navigate("/Indies/#header");
                 }}
                 enableReinitialize={true}
               >

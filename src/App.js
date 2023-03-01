@@ -16,14 +16,16 @@ import NewConcert from './pages/NewConcert';
 import MyConcerts from './pages/MyConcerts';
 import { Toaster } from 'react-hot-toast';
 import Cart from './pages/Cart';
+import Indies from './pages/Indies';
 const App = () => {
   return (
     <> 
     
-    <NavDesktop/>
+   
      
      <PostProvider>
      <Toaster/>
+      <NavDesktop/>
         <Routes>
          
           <Route path='/' element={<HomePage/>}/>
@@ -34,14 +36,17 @@ const App = () => {
           <Route path='/London' element={<London/>}/>
           <Route path='/Barcelona' element={<Barcelona/>}/>
           <Route path='/Artist' element={<Artist/>}/>
+          <Route path='/Indies' element={<Indies/>}/>
           <Route path='/ConcertForm' element={<ConcertForm/>}/>
           <Route path ='/NewConcert' element={<NewConcert/>}/>
           <Route path ='/concerts/update/:id' element={<NewConcert/>}/>
           <Route path ='/MyConcerts' element={<MyConcerts/>}/>
           <Route path ='/Cart' element={<Cart/>}/>
+         
          </Routes>
+         
          </PostProvider>
-          
+         
         
         <Footer/>
     

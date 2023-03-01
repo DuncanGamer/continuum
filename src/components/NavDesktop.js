@@ -8,6 +8,7 @@ import { UserContext } from "../Context/UserContex";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { CartContext } from "../Context/CartContext";
+import Dropdown from "./FindeBar";
 
 
 
@@ -28,7 +29,9 @@ function NavDesktop() {
 
   return (
     <>
-      <div className="   shadow-md w-full fixed z-10 ">
+      <div 
+     
+      className="   shadow-md w-full fixed z-10 ">
         {!token() ? null : (
           <div className=" lg:block bg-slate-800 text-gray-300 py-2 text-sm">
             <div className=" container  mx-auto flex justify-between">
@@ -72,14 +75,14 @@ function NavDesktop() {
           </div>
         )}
 
-        <div className="  flex items-center  mx-auto py-5 w-full bg-slate-50">
+        <div className="  flex items-center  mx-auto py-5 w-full h-16 bg-slate-50">
           <div className=" container mx-auto flex items-center gap-x-6 ">
             <div className=" container mx-auto flex justify-between items-center gap-x-6 ">
               <div className=" hidden md:block">
-                <div className=" flex justify-between  gap-x-6">
+                <div className=" flex justify-between items-center gap-x-6">
                   <div>
                     <Link to="/">
-                      <img src="./logo1.png" alt="logo continum" width="60px" />
+                      <img src="https://res.cloudinary.com/dyedjxddl/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1677581045/concerts/logo1_v8oq50.png" alt="logo continum" width="60px" />
                     </Link>
                   </div>
                   <div className="flex ml-20 gap-4 ">
@@ -96,7 +99,7 @@ function NavDesktop() {
                     <Link to="/Artist" className=" hover:text-gray-600">
                       Artist
                     </Link>
-                    <Link to ="/ConcertForm" className=" hover:text-gray-600">
+                    <Link to ="/Indies/#header" className=" hover:text-gray-600">
                       Indies
                     </Link>
                   </div>
@@ -104,8 +107,12 @@ function NavDesktop() {
                 
                 </div>
               </div>
-              <div className="hidden items-center g md:block">
-                <div className=" w-full h-14 flex justify-around gap-10">
+              <div className="hidden  g md:block">
+                <div className=" w-full h-14 flex justify-around items-center gap-10">
+                <div >
+                    <Dropdown />
+                  </div>
+                
                   {!token() ? (
                     <a href="/login"
                       className=" hover:shadow-lg shadow-md shadow-gray-500/50 border w-40 text-center py-3 rounded-xl  duration-300 ease-out hover:ease-in"

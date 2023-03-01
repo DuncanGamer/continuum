@@ -13,10 +13,10 @@ const Artist = () => {
     const handleimputchange = ({ target }) => { 
           Setchearcher(target.value) }
     const handleSubmit = (e) => { e.preventDefault() 
-    
+     }
        
     
-    }
+   
 
 
     const [concert, Setconcert] = useState([])
@@ -64,8 +64,10 @@ const Artist = () => {
                         placeholder="Find"/>
 
 
-                    <button  type="submit" onClick={DataArtist}
-                        className="  bg-orange-500 h-12 px-6 py-2.5 text-white font-medium text-xs text-center leading-tight uppercase rounded shadow-lg hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-300 ease-out hover:ease-in">
+                    <button  
+                    type="submit" 
+                    onClick={DataArtist}
+                    className="  bg-orange-500 h-12 px-6 py-2.5 text-white font-medium text-xs text-center leading-tight uppercase rounded shadow-lg hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-300 ease-out hover:ease-in">
                          Find   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" className="w-4 h-4">
                             <path fill="currentColor" />
                         </svg>

@@ -53,7 +53,7 @@ const Barcelona = () => {
                     {concert.map(({ id, name, images }) => (
 
                         <div key={id} className="  gap-5 px-6 py-6 ">
-                            <Link to={`/Concertunic/${id}`}>
+                            <Link to={`/Concertunic/${id}#header`}>
                                 <div className="  shrink-0 snap-center w-full flex flex-col md:flex  rounded-lg hover:shadow-xl shadow-md shadow-gray-500/50 transition duration-300 ease-out hover:ease-in bg-white">
                                     <div className="flex justify-center">
                                         <div class="rounded-lg shadow-lg bg-white max-w-sm">

@@ -5,7 +5,7 @@ import ShareItem from "./ShareItem"
 const ShareProduct = ({ id }) => {
   const URL = `https://products/${id}`
   return (
-    <div className="z-0">
+    <div className="z-0 flex flex-col items-center">
       <p className="ms:text-xs md:text-lg text-white font-semibold mb-2">Share this concert</p>
       <div className="flex gap-2">
         <ShareItem
