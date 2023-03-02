@@ -17,6 +17,8 @@ import MyConcerts from './pages/MyConcerts';
 import { Toaster } from 'react-hot-toast';
 import Cart from './pages/Cart';
 import Indies from './pages/Indies';
+import MyAccount from './pages/MyAccount';
+import ShareButtons from './components/redes';
 const App = () => {
   return (
     <> 
@@ -42,6 +44,8 @@ const App = () => {
           <Route path ='/concerts/update/:id' element={<NewConcert/>}/>
           <Route path ='/MyConcerts' element={<MyConcerts/>}/>
           <Route path ='/Cart' element={<Cart/>}/>
+          <Route path ='/MyAccount' element={<MyAccount/>}/>
+          <Route path ='/redes' element={<ShareButtons/>}/>
          
          </Routes>
          

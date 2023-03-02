@@ -20,11 +20,24 @@ const Concertmaster = () => {
 
     }, [])
 
+    const uniqueConcerts = concert.reduce((accumulator, current) => {
+        if (!accumulator.some((concert) => concert.name === current.name)) {
+            accumulator.push(current);
+        }
+        return accumulator;
+    }, []);
+    const uniqueConcertsList = concertlist ? concertlist.reduce((accumulator, current) => {
+        if (!accumulator.some((concertlist) => concertlist.name === current.name)) {
+            accumulator.push(current);
+        }
+        return accumulator;
+    }, []) : [];
+    
 
     return (
         <>
        
-            { !concertlist ? concert.map(({ id, name, images }) => (
+            { !concertlist ? uniqueConcerts.map(({ id, name, images }) => (
 
                 <div key={id} className="  gap-5 px-6 py-6 ">
                     <a href={`/Concertunic/${id}`}>
@@ -49,7 +62,7 @@ const Concertmaster = () => {
                     </a>
                 </div>
 
-            ),) : concertlist && concertlist.map(({ id, name, images }) => (
+            ),) : uniqueConcertsList  && uniqueConcertsList.map(({ id, name, images }) => (
 
                 <div key={id} className="  gap-5 px-6 py-6 ">
                     <a href={`/Concertunic/${id}`}>
