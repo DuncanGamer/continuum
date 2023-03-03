@@ -3,7 +3,11 @@ import Carrusel from "../components/Carrusel";
 import Baner from "../components/Baner";
 import { usePostContext } from "../Context/concertsContext";
 import Market2 from "../components/Market2";
+
+
 const ConcertForm = () => {
+
+  const imageURL ="https://images.unsplash.com/photo-1562076275-3ebb66b79a0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80";
   const { concert } = usePostContext();
 
   if (!concert) {
@@ -13,7 +17,7 @@ const ConcertForm = () => {
   return (
     <div >
         <div id="header">
-        <Carrusel />
+        <Carrusel Titulo1="Indies" Titulo2="Concerts" imageURL={imageURL}/>
         </div>
       <div className=" bg-gradient-to-b from-black to-transparent w-screen">
       <Market2/>

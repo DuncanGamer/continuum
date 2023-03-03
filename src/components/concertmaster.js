@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SearchBarContext } from '../Context/SearchBar'
 import { useContext } from 'react'
+import { BarcelonaCall } from './functions/AxiosCalls'
 
 
 
-const Concertmaster = () => {
+const Concertmaster = (props) => {
 
     const [concert, Setconcert] = useState([])
 
@@ -15,7 +16,7 @@ const Concertmaster = () => {
 
     useEffect(() => {
 
-        AxiosCalls(Setconcert)
+       props.Axios(Setconcert)
         
 
     }, [])
